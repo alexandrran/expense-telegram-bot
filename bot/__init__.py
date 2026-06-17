@@ -1,0 +1,1 @@
+"""Expense Telegram bot package."""
