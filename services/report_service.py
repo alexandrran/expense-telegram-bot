@@ -1,10 +1,13 @@
 from decimal import Decimal
 
+from services.i18n import t
 
-def build_summary(totals: dict[str, Decimal]) -> str:
-    return (
-        "Summary\n"
-        f"Today: {totals['today']:.2f}\n"
-        f"This week: {totals['week']:.2f}\n"
-        f"This month: {totals['month']:.2f}"
+
+def build_summary(totals: dict[str, Decimal], language_code: str) -> str:
+    return t(
+        language_code,
+        "summary",
+        today=totals["today"],
+        week=totals["week"],
+        month=totals["month"],
     )

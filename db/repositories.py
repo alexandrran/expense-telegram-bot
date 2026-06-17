@@ -21,6 +21,12 @@ class UserRepository:
         await self.session.flush()
         return user
 
+    async def set_language(self, telegram_id: int, language_code: str) -> User:
+        user = await self.get_or_create(telegram_id)
+        user.language_code = language_code
+        await self.session.flush()
+        return user
+
 
 class ExpenseRepository:
     def __init__(self, session: AsyncSession) -> None:

@@ -14,6 +14,7 @@ class User(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     telegram_id: Mapped[int] = mapped_column(BigInteger, unique=True, index=True)
+    language_code: Mapped[str | None] = mapped_column(String(8), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
 
     expenses: Mapped[list["Expense"]] = relationship(back_populates="user")
