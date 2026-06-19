@@ -1,12 +1,14 @@
 # Expense Telegram Bot
 
-Telegram bot for personal expense tracking. The first MVP lets a user choose English or Russian interface language, add expenses with natural messages like `coffee 250` or `кофе 250`, view a short summary, and remove the last expense.
+Telegram bot for personal expense tracking. The bot lets a user choose English or Russian interface language, add expenses with natural messages like `coffee 250` or `кофе 250`, manage recent records, and view a short summary.
 
 ## Features
 
 - Add an expense from a plain text message.
 - Auto-detect basic categories by keywords.
 - Choose English or Russian interface language.
+- View the 10 most recent expenses.
+- Edit or delete a selected expense with inline buttons.
 - View totals for today, this week, and this month.
 - Delete the latest expense.
 - Store data in SQLite through SQLAlchemy async ORM.
@@ -45,6 +47,7 @@ pytest
 
 - `/start` - show greeting and usage examples.
 - `/language` - change interface language.
+- `/expenses` - show, edit, or delete recent expenses.
 - `/summary` - show totals for today, week, and month.
 - `/undo` - delete the last expense.
 

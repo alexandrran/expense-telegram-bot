@@ -5,6 +5,7 @@ DEFAULT_COMMANDS = [
     BotCommand(command="start", description="Start the bot"),
     BotCommand(command="language", description="Change interface language"),
     BotCommand(command="summary", description="Show expense summary"),
+    BotCommand(command="expenses", description="Show and manage recent expenses"),
     BotCommand(command="undo", description="Delete the latest expense"),
 ]
 
@@ -12,6 +13,7 @@ RU_COMMANDS = [
     BotCommand(command="start", description="Запустить бота"),
     BotCommand(command="language", description="Изменить язык"),
     BotCommand(command="summary", description="Показать сводку расходов"),
+    BotCommand(command="expenses", description="Показать последние расходы"),
     BotCommand(command="undo", description="Удалить последний расход"),
 ]
 

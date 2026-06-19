@@ -9,10 +9,20 @@ MESSAGES = {
             "Hi! Send an expense like `coffee 250` or `taxi 800`.\n\n"
             "Commands:\n"
             "/summary - totals for today, week, and month\n"
+            "/expenses - show and manage recent expenses\n"
             "/undo - delete the latest expense\n"
             "/language - change interface language"
         ),
         "no_expenses": "No expenses yet.",
+        "history_title": "Recent expenses:",
+        "history_item": "#{expense_id} | {date}\n{amount:.2f} - {description} ({category})",
+        "edit_button": "Edit #{expense_id}",
+        "delete_button": "Delete #{expense_id}",
+        "edit_prompt": "Send the corrected expense, for example `coffee 250`. Use /cancel to stop editing.",
+        "edit_cancelled": "Editing cancelled.",
+        "expense_updated": "Expense #{expense_id} updated.",
+        "expense_deleted": "Expense #{expense_id} deleted.",
+        "expense_not_found": "This expense no longer exists.",
         "deleted_expense": "Deleted latest expense: {amount:.2f} - {description}",
         "expense_recorded": "Recorded {amount:.2f}: {description}, category: {category}",
         "summary": (
@@ -40,10 +50,20 @@ MESSAGES = {
             "Привет! Отправьте расход, например: `кофе 250` или `такси 800`.\n\n"
             "Команды:\n"
             "/summary - расходы за день, неделю и месяц\n"
+            "/expenses - показать и изменить последние расходы\n"
             "/undo - удалить последний расход\n"
             "/language - изменить язык интерфейса"
         ),
         "no_expenses": "Расходов пока нет.",
+        "history_title": "Последние расходы:",
+        "history_item": "#{expense_id} | {date}\n{amount:.2f} ₽ - {description} ({category})",
+        "edit_button": "Изменить #{expense_id}",
+        "delete_button": "Удалить #{expense_id}",
+        "edit_prompt": "Отправьте исправленный расход, например `кофе 250`. Для отмены используйте /cancel.",
+        "edit_cancelled": "Редактирование отменено.",
+        "expense_updated": "Расход #{expense_id} изменён.",
+        "expense_deleted": "Расход #{expense_id} удалён.",
+        "expense_not_found": "Этот расход больше не существует.",
         "deleted_expense": "Удалил последний расход: {amount:.2f} ₽ - {description}",
         "expense_recorded": "Записал {amount:.2f} ₽: {description}, категория: {category}",
         "summary": (

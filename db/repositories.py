@@ -62,6 +62,54 @@ class ExpenseRepository:
         await self.session.execute(delete(Expense).where(Expense.id == expense.id))
         return expense
 
+    async def list_recent(self, user_id: int, limit: int = 10) -> list[Expense]:
+        result = await self.session.scalars(
+            select(Expense)
+            .where(Expense.user_id == user_id)
+            .order_by(Expense.spent_at.desc(), Expense.id.desc())
+            .limit(limit)
+        )
+        return list(result)
+
+    async def get_by_id(self, user_id: int, expense_id: int) -> Expense | None:
+        return await self.session.scalar(
+            select(Expense).where(
+                Expense.id == expense_id,
+                Expense.user_id == user_id,
+            )
+        )
+
+    async def update(
+        self,
+        user_id: int,
+        expense_id: int,
+        amount: Decimal,
+        description: str,
+        category_name: str,
+    ) -> Expense | None:
+        expense = await self.get_by_id(user_id, expense_id)
+        if expense is None:
+            return None
+
+        expense.amount = amount
+        expense.description = description
+        expense.category_name = category_name
+        await self.session.flush()
+        return expense
+
+    async def delete_by_id(self, user_id: int, expense_id: int) -> Expense | None:
+        expense = await self.get_by_id(user_id, expense_id)
+        if expense is None:
+            return None
+
+        await self.session.execute(
+            delete(Expense).where(
+                Expense.id == expense_id,
+                Expense.user_id == user_id,
+            )
+        )
+        return expense
+
     async def get_totals(self, user_id: int, now: datetime | None = None) -> dict[str, Decimal]:
         current = now or datetime.now()
         today_start = datetime.combine(current.date(), time.min)

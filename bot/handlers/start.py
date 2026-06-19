@@ -25,6 +25,7 @@ async def start(message: Message, db_sessionmaker: async_sessionmaker) -> None:
         await message.answer(t(None, "choose_language"), reply_markup=language_keyboard())
         return
 
+    await setup_chat_commands(message.bot, message.chat.id, user.language_code)
     await message.answer(t(user.language_code, "start"), parse_mode="Markdown")
 
 
